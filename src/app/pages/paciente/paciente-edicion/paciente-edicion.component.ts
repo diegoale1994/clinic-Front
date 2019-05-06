@@ -18,6 +18,13 @@ export class PacienteEdicionComponent implements OnInit {
               private router: Router,
               private snackBar: MatSnackBar) { }
   ngOnInit() {
+
+    this.pacienteService.mensajeCambio.subscribe(mensaje => {
+      this.snackBar.open(mensaje, 'Cerrar', {
+        duration: 2000,
+      });
+    });
+
     this.form = new FormGroup({
       id: new FormControl(0),
       nombres: new FormControl('', Validators.required),
@@ -65,18 +72,14 @@ export class PacienteEdicionComponent implements OnInit {
       this.pacienteService.registrar(paciente).subscribe(() => {
         this.pacienteService.listar().subscribe(pacientes => {
           this.pacienteService.pacienteCambio.next(pacientes);
-          this.snackBar.open('Creado con Exito', 'close', {
-            duration: 2000,
-          });
+          this.pacienteService.mensajeCambio.next('Paciente Registrado con exito');
         });
       });
     } else {
       this.pacienteService.actualizar(paciente).subscribe(() => {
         this.pacienteService.listar().subscribe(pacientes => {
           this.pacienteService.pacienteCambio.next(pacientes);
-          this.snackBar.open('Actualizado con exito', 'close', {
-            duration: 2000,
-          });
+          this.pacienteService.mensajeCambio.next('Paciente Actualizado con exito');
         });
       });
     }

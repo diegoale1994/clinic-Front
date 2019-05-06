@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class PacienteComponent implements OnInit {
 
   dataSource: MatTableDataSource<Paciente>;
-  displayedColumns = ['idPaciente', 'nombres', 'apellidos', 'acciones'];
+  displayedColumns = ['idPaciente', 'nombres', 'apellidos', 'telefono', 'acciones'];
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   cantidad: number;

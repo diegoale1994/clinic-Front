@@ -10,6 +10,7 @@ import { Paciente } from '../_model/paciente';
 })
 export class PacienteService {
   pacienteCambio = new Subject<Paciente[]>();
+  mensajeCambio = new Subject<string>();
   private url = `${environment.URL_HOST}/pacientes`;
   constructor(private http: HttpClient) { }
 
