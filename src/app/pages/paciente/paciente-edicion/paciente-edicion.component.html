@@ -1,0 +1,50 @@
+<mat-card>Ingrese los datos del paciente</mat-card>
+<br>
+<form class="example-container" [formGroup]="form" #frmPaciente="ngForm" (ngSubmit)="operar()">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombres" formControlName="nombres">
+        <mat-error *ngIf="this.form.controls['nombres'].invalid">Nombres es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Apellidos" formControlName="apellidos">
+        <mat-error *ngIf="this.form.controls['email'].invalid">Apellidos es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="DNI" formControlName="dni" type="tel">
+        <mat-error *ngIf="this.form.controls['email'].invalid">DNI es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Dirección" formControlName="direccion">
+        <mat-error *ngIf="this.form.controls['email'].invalid">Direccion es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Teléfono" formControlName="telefono" type="tel">
+        <mat-error *ngIf="this.form.controls['email'].invalid">Telefono es requerido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" formControlName="email" type="text">
+        <mat-error *ngIf="this.form.controls['email'].errors?.required">Email es requerido</mat-error>
+        <mat-error *ngIf="this.form.controls['email'].errors?.email">No es un email valido</mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmPaciente.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/paciente' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+    </button>
+</form>

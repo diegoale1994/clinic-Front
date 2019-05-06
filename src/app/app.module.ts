@@ -1,22 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from '../../.history/src/app/material/material.module_20190429114904';
 import { PacienteComponent } from './pages/paciente/paciente.component';
+import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
 
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LOCALE_ID } from '@angular/core';
+import es from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+import { PacienteEdicionComponent } from './pages/paciente/paciente-edicion/paciente-edicion.component';
+
+registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
-    PacienteComponent
+    PacienteComponent,
+    PacienteEdicionComponent
   ],
   imports: [
     BrowserModule,
+    SweetAlert2Module.forRoot(),
     AppRoutingModule,
-    MaterialModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-ES' }
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
