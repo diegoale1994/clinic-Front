@@ -18,7 +18,6 @@ export class PacienteEdicionComponent implements OnInit {
               private router: Router,
               private snackBar: MatSnackBar) { }
   ngOnInit() {
-
     this.pacienteService.mensajeCambio.subscribe(mensaje => {
       this.snackBar.open(mensaje, 'Cerrar', {
         duration: 2000,
