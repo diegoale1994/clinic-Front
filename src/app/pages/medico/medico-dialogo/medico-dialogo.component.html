@@ -1,0 +1,14 @@
+<form (ngSubmit)="operar(forma)" #forma="ngForm">
+    <mat-form-field>
+        <input matInput placeholder="Nombres" [(ngModel)]="medico.nombres" name="nombres" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Apellidos" [(ngModel)]="medico.apellidos" name="apellidos" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="CMP" [(ngModel)]="medico.cmp" max="15" maxlength="15" name="cmp" required>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!forma.valid">Aceptar</button>
+    <button mat-raised-button color="accent" type="button" (click)="cancelar()">Cancelar</button>
+</form>

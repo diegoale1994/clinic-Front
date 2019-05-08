@@ -7,6 +7,7 @@ import {
   MatCardModule,
   MatMenuModule,
   MatPaginatorModule,
+  MatDialogModule,
   MatSortModule,
   MatDividerModule,
   MatSidenavModule,
@@ -19,6 +20,7 @@ import {
   imports: [
     CommonModule,
     MatSidenavModule,
+    MatDialogModule,
     MatTableModule,
     MatToolbarModule,
     MatButtonModule,
@@ -34,6 +36,7 @@ import {
   exports: [
     MatTableModule,
     MatIconModule,
+    MatDialogModule,
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
