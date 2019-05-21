@@ -55,9 +55,10 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <mat-form-field>
-                    <textarea matInput placeholder="Tratamiento" value="{{detalle.tratamiento}}"></textarea>
+                    <textarea matInput placeholder="Tratamiento" value="{{detalle.tratamiento}}" #nuevoTratamiento></textarea>
                 </mat-form-field>
-                <button mat-raised-button color="warn" (click)="removerDiagnostico(i)">Remover</button>
+                <button mat-raised-button color="warn" (click)="removerDiagnostico(i)" style="float: right">Remover</button>
+                <button mat-raised-button color="primary" (click)="ActualizarDiagnostico(i, nuevoTratamiento.value)" style="float: right">Actualizar</button>
             </mat-expansion-panel>
         </mat-accordion>
         <br> <br>

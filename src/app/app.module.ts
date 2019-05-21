@@ -20,6 +20,8 @@ import { MedicoDialogoComponent } from './pages/medico/medico-dialogo/medico-dia
 import { EspecialidadEdicionComponent } from './pages/especialidad/especialidad-edicion/especialidad-edicion.component';
 import { ExamenEdicionComponent } from './pages/examen/examen-edicion/examen-edicion.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { EspecialComponent } from './pages/consulta/especial/especial.component';
+
 
 registerLocaleData(es);
 @NgModule({
@@ -33,7 +35,8 @@ registerLocaleData(es);
     MedicoDialogoComponent,
     EspecialidadEdicionComponent,
     ExamenEdicionComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    EspecialComponent
   ],
   entryComponents: [
    MedicoDialogoComponent

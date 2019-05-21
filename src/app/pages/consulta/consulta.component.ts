@@ -153,4 +153,11 @@ export class ConsultaComponent implements OnInit {
       });
     });
   }
+
+  ActualizarDiagnostico(id: number, tratamiento: string) {
+    if (tratamiento === this.detalleConsulta[id].tratamiento) {
+    } else {
+      this.detalleConsulta[id].tratamiento = tratamiento;
+    }
+  }
 }

@@ -7,6 +7,7 @@ import {
   MatCardModule,
   MatMenuModule,
   MatPaginatorModule,
+  MatAutocompleteModule,
   MatDialogModule,
   MatSelectModule,
   MatExpansionModule,
@@ -25,6 +26,7 @@ import {
   imports: [
     CommonModule,
     MatSidenavModule,
+    MatAutocompleteModule,
     MatSelectModule,
     MatDialogModule,
     MatTableModule,
@@ -51,6 +53,7 @@ import {
     MatToolbarModule,
     MatListModule,
     MatButtonModule,
+    MatAutocompleteModule,
     MatNativeDateModule,
     MatMenuModule,
     MatSidenavModule,
