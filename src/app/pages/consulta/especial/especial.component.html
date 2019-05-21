@@ -60,7 +60,7 @@
                         <textarea matInput placeholder="Tratamiento" value="{{d.tratamiento}}" #nuevoTratamiento></textarea>
                     </mat-form-field>
                     <br>
-                    <button mat-raised-button color="primary" (click)="ActualizarDiagnostico(i, nuevoTratamiento.value)" style="float: right">Actualizar</button>
+                    <button mat-raised-button color="primary" type="button" (click)="ActualizarDiagnostico(i, nuevoTratamiento.value)" style="float: right">Actualizar</button>
                     <button mat-raised-button color="warn" type="button" (click)="removerDiagnostico(i)" style="float: right">Remover</button>
 
                 </mat-expansion-panel>
@@ -82,7 +82,8 @@
                 <span class="example-spacer"></span>
                 <button mat-raised-button color="warn" type="button" (click)="removerExamen(i)">Remover</button>
             </mat-toolbar>
-
+            <br>
+            <br>
             <button mat-raised-button color="primary" type="submit" [disabled]="estadoBotonRegistrar()">Registrar</button>
         </div>
     </form>
