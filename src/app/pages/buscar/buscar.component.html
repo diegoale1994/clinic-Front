@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">Búsqueda de Consulta</mat-toolbar>
+<mat-card>
+    <form [formGroup]="form" (ngSubmit)="buscar()" style="text-align: center">
+        <mat-form-field>
+            <input matInput placeholder="DNI" formControlName="dni">
+        </mat-form-field>
+        &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+            <input matInput placeholder="Nombre Completo" formControlName="nombreCompleto">
+        </mat-form-field>
+        &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" [max]="maxFecha" placeholder="Escoge una fecha" formControlName="fechaConsulta">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        &nbsp; &nbsp; &nbsp;
+        <button mat-raised-button color="primary" type="submit">Buscar</button>
+    </form>
+</mat-card>

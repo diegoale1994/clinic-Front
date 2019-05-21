@@ -18,6 +18,10 @@ export class PacienteService {
     return this.http.get<Paciente[]>(`${this.url}`);
   }
 
+  listarPageable(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/pageable?page=${page}&size=${size}`);
+  }
+
   listarPorId(idPaciente: string): Observable<Paciente> {
     return this.http.get<Paciente>(`${this.url}/${idPaciente}`);
   }

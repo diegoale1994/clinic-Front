@@ -28,11 +28,17 @@ export class PacienteComponent implements OnInit {
     this.paginator._intl.itemsPerPageLabel = 'items por pagina';
     this.paginator._intl.nextPageLabel = 'Siguiente';
     this.paginator._intl.previousPageLabel = 'Atras';
-    this.pacienteService.listar().subscribe(pacientes => {
+    /* this.pacienteService.listar().subscribe(pacientes => {
       this.dataSource = new MatTableDataSource(pacientes);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.cantidad = pacientes.length;
+    }); */
+    this.pacienteService.listarPageable(0, 5).subscribe(response => {
+      this.dataSource = new MatTableDataSource(response.content);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.cantidad = response.totalElements;
     });
   }
 
@@ -41,6 +47,12 @@ export class PacienteComponent implements OnInit {
   }
 
   mostrarMas(e: any) {
+    this.pacienteService.listarPageable(e.pageIndex, e.pageSize).subscribe(response => {
+      this.dataSource = new MatTableDataSource(response.content);
+      this.dataSource.sort = this.sort;
+      //this.dataSource.paginator = this.paginator;
+      this.cantidad = response.totalElements;
+    });
   }
 
   eliminar(idPaciente: number) {
