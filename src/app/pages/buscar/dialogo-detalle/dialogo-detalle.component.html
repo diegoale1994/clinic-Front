@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+    <div style="width: 100%">
+        <div style="float:left">
+            Paciente: {{consulta.paciente.nombres}} {{consulta.paciente.apellidos}}
+        </div>
+        <div style="float:right">
+            {{consulta.fecha | date:'dd-MM-yyyy'}}
+        </div>
+    </div>
+</mat-toolbar>
+<br> Medico: {{consulta.medico.nombres}} {{consulta.medico.apellidos}}
+<br> Especialidad: {{consulta.especialidad.nombre}}
+<br>
+<br>
+<mat-card class="example-card" *ngFor="let d of consulta.detalleConsulta">
+    <mat-card-header>
+        <mat-card-title>DIAGNOSTICO</mat-card-title>
+        <mat-card-subtitle>{{d.diagnostico}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{d.tratamiento}}
+        </p>
+    </mat-card-content>
+    <br>
+</mat-card>
+
+<mat-card class="example-card" *ngFor="let ce of examenes">
+    <mat-card-header>
+        <mat-card-title>EXAMENES</mat-card-title>
+        <mat-card-subtitle>{{ce.examen.nombre}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ce.examen.descripcion}}
+        </p>
+    </mat-card-content>
+</mat-card>
+<button mat-raised-button color="accent" (click)="cancelar()" style="float: right">Cerrar</button>

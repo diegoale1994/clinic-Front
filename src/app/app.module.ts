@@ -22,6 +22,7 @@ import { ExamenEdicionComponent } from './pages/examen/examen-edicion/examen-edi
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { EspecialComponent } from './pages/consulta/especial/especial.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { DialogoDetalleComponent } from './pages/buscar/dialogo-detalle/dialogo-detalle.component';
 
 
 registerLocaleData(es);
@@ -38,10 +39,12 @@ registerLocaleData(es);
     ExamenEdicionComponent,
     ConsultaComponent,
     EspecialComponent,
-    BuscarComponent
+    BuscarComponent,
+    DialogoDetalleComponent
   ],
   entryComponents: [
-   MedicoDialogoComponent
+   MedicoDialogoComponent,
+   DialogoDetalleComponent
   ],
   imports: [
     BrowserModule,
