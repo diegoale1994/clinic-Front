@@ -23,8 +23,9 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { EspecialComponent } from './pages/consulta/especial/especial.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { DialogoDetalleComponent } from './pages/buscar/dialogo-detalle/dialogo-detalle.component';
+import { ReporteComponent } from './pages/reporte/reporte.component';
 
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 registerLocaleData(es);
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ registerLocaleData(es);
     ConsultaComponent,
     EspecialComponent,
     BuscarComponent,
-    DialogoDetalleComponent
+    DialogoDetalleComponent,
+    ReporteComponent
   ],
   entryComponents: [
    MedicoDialogoComponent,
@@ -52,6 +54,7 @@ registerLocaleData(es);
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    PdfViewerModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule
