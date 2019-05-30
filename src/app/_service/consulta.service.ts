@@ -29,4 +29,15 @@ export class ConsultaService {
   generarReporte() {
     return this.http.get(`${this.url}/generarReporte`, {responseType: 'blob'});
   }
+  guardarArchivo(data: File) {
+    let formData: FormData = new FormData();
+    formData.append('file', data);
+    return this.http.post(`${this.url}/guardarArchivo`, formData, {
+      responseType: 'text'
+    });
+  }
+
+  leerArchivo(id: number) {
+    return this.http.get(`${this.url}/leerArchivo/${id}`, {responseType: 'blob'});
+  }
 }

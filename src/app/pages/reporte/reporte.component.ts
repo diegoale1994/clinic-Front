@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConsultaService } from 'src/app/_service/consulta.service';
 import { ConsultaResumenDTO } from 'src/app/_model/ConsultaResumenDTO';
 import { Chart } from 'chart.js';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-reporte',
@@ -12,9 +13,25 @@ export class ReporteComponent implements OnInit {
   chart: any;
   tipo: string;
   pdfSrc = '';
-  constructor(private consultaService: ConsultaService) { }
+  labelFile = '';
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  imagenData: any;
+  imagenEstado: boolean;
+  constructor(private consultaService: ConsultaService, private sanitization: DomSanitizer) { }
 
   ngOnInit() {
+    this.consultaService.leerArchivo(1).subscribe(response => {
+     let reader = new FileReader();
+     reader.readAsDataURL(response);
+     reader.onloadend = () => {
+       let x: any;
+       x = reader.result;
+       this.imagenData = this.sanitization.bypassSecurityTrustResourceUrl(x);
+       this.imagenEstado = true;
+     };
+    });
+
     this.tipo = 'line';
     this.dibujar();
   }
@@ -85,6 +102,19 @@ export class ReporteComponent implements OnInit {
       a.href = url;
       a.download = 'archivo.pdf';
       a.click();
+    });
+  }
+
+  selectFile(evento: any) {
+    this.labelFile = evento.target.files[0].name;
+    this.selectedFiles = evento.target.files;
+  }
+  upload() {
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.consultaService.guardarArchivo(this.currentFileUpload).subscribe(response => {
+      this.selectedFiles = undefined;
+    }, e => {
+      console.log(e);
     });
   }
 }
